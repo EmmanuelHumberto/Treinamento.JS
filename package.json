@@ -1,0 +1,12 @@
+{
+  "name": "alura_js",
+  "version": "1.0.0",
+  "description": "Treinamento js Alura",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emmanuel Humberto",
+  "license": "ISC",
+  "type": "module"
+}

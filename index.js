@@ -1,39 +1,44 @@
 import {Titular} from "./Titular.js"
 import {Conta} from "./Conta.js"
+import {ContaCorrente} from "./ContaCorrente.js";
+import {ContaPoupanca} from "./ContaPoupanca.js";
 
 
-/*-Titular cliente1---------------------*/
-const cliente1 = new Titular('Dom Pedro','123.456.789-41');
+/*-Criando Titular correntista1-------------------------------------------------*/
+const correntista1 = new Titular('Dom Pedro','123.456.789-41');
 
-/*-Conta1-------------------------------*/
-const conta1 = new Conta(1002, cliente1);
-console.log(conta1.titular);
+/*-Abertura de ContaCorrente1------------------------------------------------------------*/
+const ContaCorrente1 = new ContaCorrente(1002, correntista1,0);
+console.log(ContaCorrente1);
 
-/*-Metodos conta1-----------------------*/
-conta1.depositar(10000);
-conta1.sacar(6000);
+/*-Metodos ContaCorrente1--------------------------------------------*/
+ContaCorrente1.depositar(10000);
+ContaCorrente1.sacar(6000);
 
-/*-Saidas saldo conta1------------------*/
-console.log(conta1._saldo);
+/*-Saidas saldo ContaCorrente1---------------------------------------*/
+console.log(ContaCorrente1.saldo);
 
-/*-Titular cliente2---------------------*/
-const cliente2 = new Titular('Frida Kahlo','1234.456.789-91');
+/*-Criando Titular correntista2--------------------------------------------------*/
+const correntista2 = new Titular('Frida Kahlo','1234.456.789-91');
 
-/*-Conta2-------------------------------*/
-const conta2 = new Conta(1002,cliente2);
-console.log(conta2.titular);
+/*-Abertura de ContaPoupanca1-------------------------------------------------------------*/
+const ContaPoupanca1 = new ContaPoupanca(1002,correntista2,0);
+console.log(ContaPoupanca1);
 
-/*-Metodos conta2------------------------*/
-conta2.depositar(20000);
-conta2.sacar(10000);
-conta2.transferir(5000,conta1);
-conta1.transferir(2550,conta2);
 
-/*-Saidas-------------------------------*/
-console.log("Saldo conta1 "+conta1.saldo);
-console.log(cliente1.cpf);
-console.log(Conta.contaNumeroDeContas);
-/*-------------------------------*/
+/*-Metodos ContaPoupanca1-----------------------------------------*/
+ContaPoupanca1.depositar(20000);
+ContaPoupanca1.sacar(10000);
+ContaPoupanca1.transferir(5000,ContaCorrente1);
+ContaCorrente1.transferir(2550,ContaPoupanca1);
+
+
+/*-Saidas--------------------------------------------------*/
+console.log("Saldo conta1 "+ContaCorrente1.saldo);
+console.log("Saldo conta1 "+ContaPoupanca1.saldo);
+console.log("Numero de contas: "+Conta.contaNumeroDeContas);
+console.log("Numero de contas Correntes: "+ContaCorrente.numeroDecontasCorrentes)
+/*---------------------------------------------------------*/
 
 
 

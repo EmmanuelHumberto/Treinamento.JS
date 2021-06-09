@@ -1,14 +1,17 @@
 export class Titular
 {
-    nome;
-    _cpf;
-
-    get cpf(){
-       return this._cpf
-    }
-
+    /*-Construtor Titular--------------------------------------------------------*/
     constructor(nome, cpf) {
-        this.nome  = nome;
+        this.nome = nome;
         this._cpf = cpf
     }
+
+    /*-GET Cpf--------------------------------------------------------*/
+    get cpf()
+    {
+        return this._cpf
+    }
+
 }
+
+

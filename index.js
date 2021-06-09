@@ -1,44 +1,27 @@
 import {Titular} from "./Titular.js"
-import {Conta} from "./Conta.js"
-import {ContaCorrente} from "./ContaCorrente.js";
-import {ContaPoupanca} from "./ContaPoupanca.js";
+import {Conta} from "./Conta/Conta.js"
+import {ContaCorrente} from "./Conta/ContaCorrente.js";
+import {ContaPoupanca} from "./Conta/ContaPoupanca.js";
+import {Gerente} from "./Funcionarios/Gerente.js";
+import {Diretor} from "./Funcionarios/Diretor.js";
+import {SistemaAutenticacao} from "./SistemaAutenticacao.js";
 
 
-/*-Criando Titular correntista1-------------------------------------------------*/
-const correntista1 = new Titular('Dom Pedro','123.456.789-41');
-
-/*-Abertura de ContaCorrente1------------------------------------------------------------*/
-const ContaCorrente1 = new ContaCorrente(1002, correntista1,0);
-console.log(ContaCorrente1);
-
-/*-Metodos ContaCorrente1--------------------------------------------*/
-ContaCorrente1.depositar(10000);
-ContaCorrente1.sacar(6000);
-
-/*-Saidas saldo ContaCorrente1---------------------------------------*/
-console.log(ContaCorrente1.saldo);
-
-/*-Criando Titular correntista2--------------------------------------------------*/
-const correntista2 = new Titular('Frida Kahlo','1234.456.789-91');
-
-/*-Abertura de ContaPoupanca1-------------------------------------------------------------*/
-const ContaPoupanca1 = new ContaPoupanca(1002,correntista2,0);
-console.log(ContaPoupanca1);
+const diretor1 = new Diretor('Ambrosio', '123.456.741.52', 50000);
+diretor1.cadastrarSenha("1112");
+console.log(diretor1);
+const diretorlogado = SistemaAutenticacao.login(diretor1, "1112");
 
 
-/*-Metodos ContaPoupanca1-----------------------------------------*/
-ContaPoupanca1.depositar(20000);
-ContaPoupanca1.sacar(10000);
-ContaPoupanca1.transferir(5000,ContaCorrente1);
-ContaCorrente1.transferir(2550,ContaPoupanca1);
+const gerente1 = new Gerente( 'Fibrinonogenio', '123.587.741.52', 30000);
+gerente1.cadastrarSenha("12");
+console.log(gerente1);
+const gerentelogado = SistemaAutenticacao.login(gerente1, "12");
+
+const cliente1 = new Titular('estrabico','852.147.965.12',1234);
+gerente1.cadastrarSenha("1234");
+console.log(cliente1);
+const clientelogado = SistemaAutenticacao.login(cliente1, "1234");
 
 
-/*-Saidas--------------------------------------------------*/
-console.log("Saldo conta1 "+ContaCorrente1.saldo);
-console.log("Saldo conta1 "+ContaPoupanca1.saldo);
-console.log("Numero de contas: "+Conta.contaNumeroDeContas);
-console.log("Numero de contas Correntes: "+ContaCorrente.numeroDecontasCorrentes)
-/*---------------------------------------------------------*/
-
-
-
+console.log(diretorlogado, gerentelogado, clientelogado);

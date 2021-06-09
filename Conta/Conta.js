@@ -1,4 +1,4 @@
-import {Titular} from "./Titular.js";
+import {Titular} from "../Titular.js";
 
 /*-classe Abstrata Conta---------------------------------------------------=---------*/
 export class Conta {
@@ -43,7 +43,7 @@ export class Conta {
 
     /*Metodo Privado*/
     _sacar(valorAsacar, tx) {
-        if (this._saldo < valorAsacar || valorAsacar < 0) {localStorage
+        if (this._saldo < valorAsacar || valorAsacar < 0) {
             throw new Error("Sacar não é possível. Faça um deposito primeiro.");
             return 0;
         }
